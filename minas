@@ -1,52 +1,26 @@
 <?php
+// Inicializa el número de minas y el símbolo que las representa
+$minas = 5;
+$mina = "*";
 
+// Crea una matriz de 10x10 rellena con "0"
+$matriz = array_fill(0, 10, array_fill(0, 10, "0"));
 
-$minas=5;
-$mina="*";
-
-
-for($i=0; $i <10 ; $i++) { 
-    for ($j=0; $j <10 ; $j++) { 
-        
-        $matriz[$i][$j]="0";
-
-    }
-
-}
-
-
-for($i=0; $i <10 ; $i++) { 
-    for ($j=0; $j <10 ; $j++) { 
-        
-        while($minas>0){
-          
-      
-        if($matriz[$i][$j]=0)
-          $i=rand(0,10);
-          $j=rand(0,10);
-           $matriz[$i][$j]=$mina;
-
+// Mientras queden minas por colocar, elige una posición aleatoria y coloca una mina si la celda está vacía
+while ($minas > 0) {
+    $i = rand(0, 9);
+    $j = rand(0, 9);
+    if ($matriz[$i][$j] === "0") {
+        $matriz[$i][$j] = $mina;
         $minas--;
     }
-
-    }
-
 }
 
-
-
-
-
-//imprimo
-for($i=0; $i <10 ; $i++) { 
-    for ($j=0; $j <10 ; $j++) { 
-        
-       echo $matriz[$i][$j]." ";
-
+// Recorre la matriz y muestra su contenido
+for ($i = 0; $i < 10; $i++) {
+    for ($j = 0; $j < 10; $j++) {
+        echo $matriz[$i][$j] . " ";
     }
-echo "<br>";
+    echo "<br>";
 }
-
-
-
 ?>
