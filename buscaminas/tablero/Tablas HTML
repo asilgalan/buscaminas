@@ -9,7 +9,7 @@
     <style>
         table {
             border-collapse: collapse;
-            margin: 20px auto;
+            margin: 100px auto;
         }
         td {
             width: 40px;
